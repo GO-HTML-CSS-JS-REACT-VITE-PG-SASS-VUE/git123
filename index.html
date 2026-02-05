@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команды администратора</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-terminal"></i> Справочник команд администратора</h1>
+            <p class="subtitle">200 команд для управления системой</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск команд...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="stats">
+                <span id="visibleCount">200</span> из <span id="totalCount">200</span> команд отображается
+            </div>
+        </header>
+
+        <div class="accordion" id="accordionContainer">
+            <!-- Аккордеон будет сгенерирован JavaScript -->
+        </div>
+
+        <footer>
+            <p>Используйте <kbd>Ctrl + F</kbd> для быстрого поиска | Обновлено: <span id="currentDate"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="generate-json.js"></script>
+</body>
+</html>

@@ -1,0 +1,3811 @@
+[
+  {
+    "id": 1,
+    "command": "systemctl status nginx",
+    "category": "SystemD",
+    "description": "Показывает текущий статус службы Nginx: работает, остановлена или возникли ошибки.",
+    "usage": "sudo systemctl status nginx",
+    "parameters": [
+      {
+        "name": "--no-pager",
+        "description": "Вывод без использования постраничного просмотра"
+      }
+    ],
+    "examples": [
+      "sudo systemctl status nginx",
+      "systemctl status nginx --no-pager"
+    ]
+  },
+  {
+    "id": 2,
+    "command": "journalctl -f",
+    "category": "Логи",
+    "description": "Отображает логи в реальном времени (follow mode). Полезно для мониторинга событий системы.",
+    "usage": "sudo journalctl -f",
+    "parameters": [
+      {
+        "name": "-f, --follow",
+        "description": "Следить за новыми записями в журнале"
+      }
+    ],
+    "examples": [
+      "sudo journalctl -f",
+      "journalctl -f -u nginx"
+    ]
+  },
+  {
+    "id": 3,
+    "command": "docker logs [CONTAINER]",
+    "category": "Docker",
+    "description": "Выводит логи указанного Docker контейнера.",
+    "usage": "docker logs [OPTIONS] CONTAINER",
+    "parameters": [
+      {
+        "name": "-f, --follow",
+        "description": "Следить за выводом логов"
+      },
+      {
+        "name": "--tail",
+        "description": "Показать только последние N строк"
+      }
+    ],
+    "examples": [
+      "docker logs webapp",
+      "docker logs -f database",
+      "docker logs --tail 50 app_container"
+    ]
+  },
+  {
+    "id": 4,
+    "command": "netstat -tulpn",
+    "category": "Сеть",
+    "description": "Показывает все открытые порты и связанные с ними процессы.",
+    "usage": "netstat [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-t, --tcp",
+        "description": "Показать TCP порты"
+      },
+      {
+        "name": "-u, --udp",
+        "description": "Показать UDP порты"
+      },
+      {
+        "name": "-l, --listening",
+        "description": "Показать только прослушивающие порты"
+      }
+    ],
+    "examples": [
+      "sudo netstat -tulpn",
+      "netstat -tulpn | grep :80"
+    ]
+  },
+  {
+    "id": 5,
+    "command": "ps aux | grep [PROCESS]",
+    "category": "Процессы",
+    "description": "Ищет и отображает информацию о конкретном процессе.",
+    "usage": "ps aux | grep [PROCESS_NAME]",
+    "parameters": [],
+    "examples": [
+      "ps aux | grep nginx",
+      "ps aux | grep java",
+      "ps aux | grep -i mysql"
+    ]
+  },
+  {
+    "id": 6,
+    "command": "df -h",
+    "category": "Файлы",
+    "description": "Показывает информацию об использовании дискового пространства в удобочитаемом формате.",
+    "usage": "df [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-h, --human-readable",
+        "description": "Показать размеры в удобочитаемом формате (KB, MB, GB)"
+      },
+      {
+        "name": "-T, --print-type",
+        "description": "Показать тип файловой системы"
+      }
+    ],
+    "examples": [
+      "df -h",
+      "df -hT",
+      "df -h /home"
+    ]
+  },
+  {
+    "id": 7,
+    "command": "free -m",
+    "category": "Мониторинг",
+    "description": "Отображает информацию об использовании оперативной памяти в мегабайтах.",
+    "usage": "free [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-m",
+        "description": "Показать значения в мегабайтах"
+      },
+      {
+        "name": "-g",
+        "description": "Показать значения в гигабайтах"
+      }
+    ],
+    "examples": [
+      "free -m",
+      "free -g",
+      "free -h"
+    ]
+  },
+  {
+    "id": 8,
+    "command": "top",
+    "category": "Процессы",
+    "description": "Интерактивная утилита для мониторинга процессов в реальном времени.",
+    "usage": "top",
+    "parameters": [],
+    "examples": [
+      "top",
+      "top -u www-data",
+      "top -p 1234"
+    ]
+  },
+  {
+    "id": 9,
+    "command": "iptables -L",
+    "category": "Безопасность",
+    "description": "Показывает все правила firewall (iptables).",
+    "usage": "sudo iptables [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-L, --list",
+        "description": "Вывести все правила цепочки"
+      },
+      {
+        "name": "-n, --numeric",
+        "description": "Числовой вывод адресов и портов"
+      }
+    ],
+    "examples": [
+      "sudo iptables -L",
+      "sudo iptables -L -n",
+      "sudo iptables -L -v"
+    ]
+  },
+  {
+    "id": 10,
+    "command": "ufw status",
+    "category": "Безопасность",
+    "description": "Показывает статус Uncomplicated Firewall (UFW).",
+    "usage": "sudo ufw status",
+    "parameters": [
+      {
+        "name": "verbose",
+        "description": "Подробный вывод с номерами правил"
+      }
+    ],
+    "examples": [
+      "sudo ufw status",
+      "sudo ufw status verbose",
+      "sudo ufw status numbered"
+    ]
+  },
+  {
+    "id": 11,
+    "command": "systemctl restart [SERVICE]",
+    "category": "SystemD",
+    "description": "Перезапускает указанную службу systemd.",
+    "usage": "sudo systemctl restart SERVICE_NAME",
+    "parameters": [],
+    "examples": [
+      "sudo systemctl restart nginx",
+      "sudo systemctl restart mysql",
+      "sudo systemctl restart apache2"
+    ]
+  },
+  {
+    "id": 12,
+    "command": "systemctl enable [SERVICE]",
+    "category": "SystemD",
+    "description": "Включает автозагрузку службы при старте системы.",
+    "usage": "sudo systemctl enable SERVICE_NAME",
+    "parameters": [],
+    "examples": [
+      "sudo systemctl enable nginx",
+      "sudo systemctl enable docker",
+      "sudo systemctl enable ssh"
+    ]
+  },
+  {
+    "id": 13,
+    "command": "systemctl disable [SERVICE]",
+    "category": "SystemD",
+    "description": "Отключает автозагрузку службы при старте системы.",
+    "usage": "sudo systemctl disable SERVICE_NAME",
+    "parameters": [],
+    "examples": [
+      "sudo systemctl disable apache2",
+      "sudo systemctl disable mongod",
+      "sudo systemctl disable postgresql"
+    ]
+  },
+  {
+    "id": 14,
+    "command": "docker ps",
+    "category": "Docker",
+    "description": "Показывает список запущенных Docker контейнеров.",
+    "usage": "docker ps [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать все контейнеры (включая остановленные)"
+      },
+      {
+        "name": "-q, --quiet",
+        "description": "Показать только ID контейнеров"
+      }
+    ],
+    "examples": [
+      "docker ps",
+      "docker ps -a",
+      "docker ps --format \"table {{.Names}}\\t{{.Status}}\""
+    ]
+  },
+  {
+    "id": 15,
+    "command": "docker images",
+    "category": "Docker",
+    "description": "Показывает список доступных Docker образов.",
+    "usage": "docker images [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать все образы (включая промежуточные)"
+      },
+      {
+        "name": "-q, --quiet",
+        "description": "Показать только ID образов"
+      }
+    ],
+    "examples": [
+      "docker images",
+      "docker images -a",
+      "docker images ubuntu"
+    ]
+  },
+  {
+    "id": 16,
+    "command": "docker stop [CONTAINER]",
+    "category": "Docker",
+    "description": "Останавливает запущенный Docker контейнер.",
+    "usage": "docker stop [OPTIONS] CONTAINER",
+    "parameters": [
+      {
+        "name": "-t, --time",
+        "description": "Время ожидания перед принудительной остановкой"
+      }
+    ],
+    "examples": [
+      "docker stop webapp",
+      "docker stop -t 30 database",
+      "docker stop $(docker ps -q)"
+    ]
+  },
+  {
+    "id": 17,
+    "command": "docker rm [CONTAINER]",
+    "category": "Docker",
+    "description": "Удаляет остановленный Docker контейнер.",
+    "usage": "docker rm [OPTIONS] CONTAINER",
+    "parameters": [
+      {
+        "name": "-f, --force",
+        "description": "Принудительное удаление запущенного контейнера"
+      },
+      {
+        "name": "-v, --volumes",
+        "description": "Удалить связанные тома"
+      }
+    ],
+    "examples": [
+      "docker rm old_container",
+      "docker rm -f running_container",
+      "docker rm $(docker ps -aq)"
+    ]
+  },
+  {
+    "id": 18,
+    "command": "docker rmi [IMAGE]",
+    "category": "Docker",
+    "description": "Удаляет Docker образ.",
+    "usage": "docker rmi [OPTIONS] IMAGE",
+    "parameters": [
+      {
+        "name": "-f, --force",
+        "description": "Принудительное удаление образа"
+      }
+    ],
+    "examples": [
+      "docker rmi ubuntu:latest",
+      "docker rmi -f old_image",
+      "docker rmi $(docker images -q)"
+    ]
+  },
+  {
+    "id": 19,
+    "command": "docker-compose up",
+    "category": "Docker",
+    "description": "Запускает сервисы, описанные в docker-compose.yml.",
+    "usage": "docker-compose up [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-d, --detach",
+        "description": "Запустить в фоновом режиме"
+      },
+      {
+        "name": "--build",
+        "description": "Пересобрать образы перед запуском"
+      }
+    ],
+    "examples": [
+      "docker-compose up",
+      "docker-compose up -d",
+      "docker-compose up --build"
+    ]
+  },
+  {
+    "id": 20,
+    "command": "docker-compose down",
+    "category": "Docker",
+    "description": "Останавливает и удаляет контейнеры, сети, тома и образы, созданные docker-compose up.",
+    "usage": "docker-compose down [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-v, --volumes",
+        "description": "Удалить тома, объявленные в volumes секции"
+      },
+      {
+        "name": "--rmi",
+        "description": "Удалить образы, использованные сервисами"
+      }
+    ],
+    "examples": [
+      "docker-compose down",
+      "docker-compose down -v",
+      "docker-compose down --rmi all"
+    ]
+  },
+  {
+    "id": 21,
+    "command": "tail -f [FILE]",
+    "category": "Файлы",
+    "description": "Выводит последние строки файла и следит за его изменениями.",
+    "usage": "tail [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-f, --follow",
+        "description": "Следить за изменениями файла"
+      },
+      {
+        "name": "-n",
+        "description": "Количество строк для вывода"
+      }
+    ],
+    "examples": [
+      "tail -f /var/log/nginx/access.log",
+      "tail -f -n 100 app.log",
+      "tail -f /var/log/syslog"
+    ]
+  },
+  {
+    "id": 22,
+    "command": "grep -r [PATTERN] [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Рекурсивный поиск текста в файлах директории.",
+    "usage": "grep [OPTIONS] PATTERN [FILE...]",
+    "parameters": [
+      {
+        "name": "-r, --recursive",
+        "description": "Рекурсивный поиск в поддиректориях"
+      },
+      {
+        "name": "-i, --ignore-case",
+        "description": "Игнорировать регистр"
+      },
+      {
+        "name": "-l, --files-with-matches",
+        "description": "Вывести только имена файлов с совпадениями"
+      }
+    ],
+    "examples": [
+      "grep -r \"ERROR\" /var/log/",
+      "grep -ri \"database\" /etc/",
+      "grep -rl \"password\" /home/user/"
+    ]
+  },
+  {
+    "id": 23,
+    "command": "find [DIRECTORY] -name \"[PATTERN]\"",
+    "category": "Файлы",
+    "description": "Поиск файлов по имени в указанной директории.",
+    "usage": "find [PATH...] [EXPRESSION]",
+    "parameters": [
+      {
+        "name": "-name",
+        "description": "Искать файлы по имени (поддерживает wildcards)"
+      },
+      {
+        "name": "-type",
+        "description": "Тип файла (f - файл, d - директория)"
+      },
+      {
+        "name": "-mtime",
+        "description": "Файлы, измененные N дней назад"
+      }
+    ],
+    "examples": [
+      "find /var/log -name \"*.log\"",
+      "find /home -type f -name \"*.conf\"",
+      "find /etc -type d -name \"nginx\""
+    ]
+  },
+  {
+    "id": 24,
+    "command": "chmod [PERMISSIONS] [FILE]",
+    "category": "Файлы",
+    "description": "Изменяет права доступа к файлу или директории.",
+    "usage": "chmod [OPTIONS] MODE FILE",
+    "parameters": [
+      {
+        "name": "755",
+        "description": "rwxr-xr-x (владелец: чтение, запись, выполнение; остальные: чтение, выполнение)"
+      },
+      {
+        "name": "644",
+        "description": "rw-r--r-- (владелец: чтение, запись; остальные: чтение)"
+      }
+    ],
+    "examples": [
+      "chmod 755 script.sh",
+      "chmod 644 config.conf",
+      "chmod +x executable_file"
+    ]
+  },
+  {
+    "id": 25,
+    "command": "chown [USER]:[GROUP] [FILE]",
+    "category": "Файлы",
+    "description": "Изменяет владельца и группу файла или директории.",
+    "usage": "chown [OPTIONS] OWNER:GROUP FILE",
+    "parameters": [
+      {
+        "name": "-R, --recursive",
+        "description": "Рекурсивное изменение владельца"
+      }
+    ],
+    "examples": [
+      "chown www-data:www-data /var/www/html",
+      "chown -R user:users /home/user/data",
+      "chown root:root important_file"
+    ]
+  },
+  {
+    "id": 26,
+    "command": "lsblk",
+    "category": "Диски",
+    "description": "Показывает информацию о блочных устройствах (дисках и разделах).",
+    "usage": "lsblk [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-f, --fs",
+        "description": "Показать информацию о файловых системах"
+      },
+      {
+        "name": "-o",
+        "description": "Указать колонки для вывода"
+      }
+    ],
+    "examples": [
+      "lsblk",
+      "lsblk -f",
+      "lsblk -o NAME,SIZE,TYPE,MOUNTPOINT"
+    ]
+  },
+  {
+    "id": 27,
+    "command": "mount",
+    "category": "Диски",
+    "description": "Показывает список смонтированных файловых систем.",
+    "usage": "mount [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-l, --show-labels",
+        "description": "Показать метки томов"
+      },
+      {
+        "name": "-t",
+        "description": "Показать только файловые системы определенного типа"
+      }
+    ],
+    "examples": [
+      "mount",
+      "mount -l",
+      "mount -t ext4"
+    ]
+  },
+  {
+    "id": 28,
+    "command": "umount [DEVICE]",
+    "category": "Диски",
+    "description": "Отмонтирует файловую систему.",
+    "usage": "umount [OPTIONS] DEVICE",
+    "parameters": [
+      {
+        "name": "-l, --lazy",
+        "description": "Ленивое отмонтирование (отложенное)"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Принудительное отмонтирование"
+      }
+    ],
+    "examples": [
+      "sudo umount /dev/sdb1",
+      "sudo umount /mnt/usb",
+      "sudo umount -l /mnt/busy_device"
+    ]
+  },
+  {
+    "id": 29,
+    "command": "fdisk -l",
+    "category": "Диски",
+    "description": "Показывает информацию о разделах дисков.",
+    "usage": "sudo fdisk [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-l, --list",
+        "description": "Показать список разделов"
+      }
+    ],
+    "examples": [
+      "sudo fdisk -l",
+      "sudo fdisk -l /dev/sda"
+    ]
+  },
+  {
+    "id": 30,
+    "command": "du -sh [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Показывает размер директории в удобочитаемом формате.",
+    "usage": "du [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-s, --summarize",
+        "description": "Показать только общий размер"
+      },
+      {
+        "name": "-h, --human-readable",
+        "description": "Вывод в удобочитаемом формате"
+      }
+    ],
+    "examples": [
+      "du -sh /var/log",
+      "du -sh /home/*",
+      "du -sh ."
+    ]
+  },
+  {
+    "id": 31,
+    "command": "ss -tulpn",
+    "category": "Сеть",
+    "description": "Более современная альтернатива netstat для отображения информации о сокетах.",
+    "usage": "ss [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-t, --tcp",
+        "description": "Показать TCP сокеты"
+      },
+      {
+        "name": "-u, --udp",
+        "description": "Показать UDP сокеты"
+      },
+      {
+        "name": "-l, --listening",
+        "description": "Показать только слушающие сокеты"
+      }
+    ],
+    "examples": [
+      "ss -tulpn",
+      "ss -tulpn | grep :22",
+      "ss -s"
+    ]
+  },
+  {
+    "id": 32,
+    "command": "ping [HOST]",
+    "category": "Сеть",
+    "description": "Проверяет доступность сетевого узла и измеряет время отклика.",
+    "usage": "ping [OPTIONS] HOST",
+    "parameters": [
+      {
+        "name": "-c",
+        "description": "Количество пакетов для отправки"
+      },
+      {
+        "name": "-i",
+        "description": "Интервал между пакетами (секунды)"
+      }
+    ],
+    "examples": [
+      "ping google.com",
+      "ping -c 5 8.8.8.8",
+      "ping -i 0.5 example.com"
+    ]
+  },
+  {
+    "id": 33,
+    "command": "traceroute [HOST]",
+    "category": "Сеть",
+    "description": "Показывает путь сетевых пакетов до указанного хоста.",
+    "usage": "traceroute [OPTIONS] HOST",
+    "parameters": [
+      {
+        "name": "-I, --icmp",
+        "description": "Использовать ICMP ECHO для трассировки"
+      },
+      {
+        "name": "-T, --tcp",
+        "description": "Использовать TCP SYN для трассировки"
+      }
+    ],
+    "examples": [
+      "traceroute google.com",
+      "traceroute -I 8.8.8.8",
+      "traceroute -T example.com"
+    ]
+  },
+  {
+    "id": 34,
+    "command": "dig [DOMAIN]",
+    "category": "Сеть",
+    "description": "Запрашивает DNS информацию о домене.",
+    "usage": "dig [OPTIONS] DOMAIN",
+    "parameters": [
+      {
+        "name": "@SERVER",
+        "description": "Использовать указанный DNS сервер"
+      },
+      {
+        "name": "TYPE",
+        "description": "Тип записи (A, MX, TXT, NS и т.д.)"
+      }
+    ],
+    "examples": [
+      "dig google.com",
+      "dig @8.8.8.8 example.com",
+      "dig MX google.com"
+    ]
+  },
+  {
+    "id": 35,
+    "command": "nslookup [DOMAIN]",
+    "category": "Сеть",
+    "description": "Альтернативная утилита для DNS запросов.",
+    "usage": "nslookup [OPTIONS] DOMAIN",
+    "parameters": [],
+    "examples": [
+      "nslookup google.com",
+      "nslookup -type=MX example.com",
+      "nslookup 8.8.8.8"
+    ]
+  },
+  {
+    "id": 36,
+    "command": "whois [DOMAIN]",
+    "category": "Сеть",
+    "description": "Запрашивает whois информацию о домене или IP адресе.",
+    "usage": "whois [OPTIONS] DOMAIN",
+    "parameters": [],
+    "examples": [
+      "whois example.com",
+      "whois 8.8.8.8",
+      "whois -h whois.ripe.net AS12345"
+    ]
+  },
+  {
+    "id": 37,
+    "command": "ifconfig",
+    "category": "Сеть",
+    "description": "Показывает конфигурацию сетевых интерфейсов.",
+    "usage": "ifconfig [INTERFACE]",
+    "parameters": [],
+    "examples": [
+      "ifconfig",
+      "ifconfig eth0",
+      "ifconfig -a"
+    ]
+  },
+  {
+    "id": 38,
+    "command": "ip addr show",
+    "category": "Сеть",
+    "description": "Современная альтернатива ifconfig для управления сетевыми интерфейсами.",
+    "usage": "ip [OPTIONS] addr COMMAND",
+    "parameters": [
+      {
+        "name": "show",
+        "description": "Показать информацию об интерфейсах"
+      },
+      {
+        "name": "add",
+        "description": "Добавить IP адрес к интерфейсу"
+      }
+    ],
+    "examples": [
+      "ip addr show",
+      "ip addr show eth0",
+      "ip addr add 192.168.1.100/24 dev eth0"
+    ]
+  },
+  {
+    "id": 39,
+    "command": "ip route show",
+    "category": "Сеть",
+    "description": "Показывает таблицу маршрутизации.",
+    "usage": "ip route [COMMAND]",
+    "parameters": [
+      {
+        "name": "show",
+        "description": "Показать таблицу маршрутизации"
+      },
+      {
+        "name": "add",
+        "description": "Добавить маршрут"
+      }
+    ],
+    "examples": [
+      "ip route show",
+      "ip route add default via 192.168.1.1",
+      "ip route add 10.0.0.0/8 via 192.168.1.254"
+    ]
+  },
+  {
+    "id": 40,
+    "command": "tcpdump -i [INTERFACE]",
+    "category": "Сеть",
+    "description": "Перехват и анализ сетевого трафика.",
+    "usage": "sudo tcpdump [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-i",
+        "description": "Указать сетевой интерфейс"
+      },
+      {
+        "name": "port",
+        "description": "Фильтровать по порту"
+      },
+      {
+        "name": "host",
+        "description": "Фильтровать по IP адресу"
+      }
+    ],
+    "examples": [
+      "sudo tcpdump -i eth0",
+      "sudo tcpdump -i eth0 port 80",
+      "sudo tcpdump -i any host 192.168.1.100"
+    ]
+  },
+  {
+    "id": 41,
+    "command": "wget [URL]",
+    "category": "Сеть",
+    "description": "Загружает файлы из интернета.",
+    "usage": "wget [OPTIONS] URL",
+    "parameters": [
+      {
+        "name": "-O",
+        "description": "Указать имя выходного файла"
+      },
+      {
+        "name": "-c, --continue",
+        "description": "Продолжить прерванную загрузку"
+      }
+    ],
+    "examples": [
+      "wget https://example.com/file.zip",
+      "wget -O backup.tar.gz https://example.com/backup.tar",
+      "wget -c https://example.com/largefile.iso"
+    ]
+  },
+  {
+    "id": 42,
+    "command": "curl [URL]",
+    "category": "Сеть",
+    "description": "Передает данные с или на сервер, поддерживает множество протоколов.",
+    "usage": "curl [OPTIONS] URL",
+    "parameters": [
+      {
+        "name": "-o, --output",
+        "description": "Сохранить вывод в файл"
+      },
+      {
+        "name": "-I, --head",
+        "description": "Показать только заголовки HTTP"
+      }
+    ],
+    "examples": [
+      "curl https://example.com",
+      "curl -o file.html https://example.com",
+      "curl -I https://example.com"
+    ]
+  },
+  {
+    "id": 43,
+    "command": "scp [SOURCE] [DESTINATION]",
+    "category": "Сеть",
+    "description": "Безопасное копирование файлов между хостами по SSH.",
+    "usage": "scp [OPTIONS] SOURCE DESTINATION",
+    "parameters": [
+      {
+        "name": "-r, --recursive",
+        "description": "Рекурсивное копирование директорий"
+      },
+      {
+        "name": "-P",
+        "description": "Порт SSH сервера"
+      }
+    ],
+    "examples": [
+      "scp file.txt user@remote:/home/user/",
+      "scp -r /local/dir user@remote:/remote/dir",
+      "scp -P 2222 file.txt user@remote:/home/user/"
+    ]
+  },
+  {
+    "id": 44,
+    "command": "rsync -av [SOURCE] [DESTINATION]",
+    "category": "Файлы",
+    "description": "Эффективная синхронизация файлов и директорий.",
+    "usage": "rsync [OPTIONS] SOURCE DESTINATION",
+    "parameters": [
+      {
+        "name": "-a, --archive",
+        "description": "Архивный режим (сохраняет атрибуты)"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-z, --compress",
+        "description": "Сжатие при передаче"
+      }
+    ],
+    "examples": [
+      "rsync -av /source/ /destination/",
+      "rsync -avz /local/ user@remote:/remote/",
+      "rsync -av --delete /backup/ /storage/"
+    ]
+  },
+  {
+    "id": 45,
+    "command": "tar -czf [ARCHIVE.tar.gz] [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Создает сжатый tar архив.",
+    "usage": "tar [OPTIONS] ARCHIVE FILES",
+    "parameters": [
+      {
+        "name": "-c, --create",
+        "description": "Создать новый архив"
+      },
+      {
+        "name": "-z, --gzip",
+        "description": "Использовать сжатие gzip"
+      },
+      {
+        "name": "-f, --file",
+        "description": "Имя архивного файла"
+      }
+    ],
+    "examples": [
+      "tar -czf backup.tar.gz /path/to/directory",
+      "tar -czf logs.tar.gz /var/log/*.log",
+      "tar -czf home_backup.tar.gz /home/user/"
+    ]
+  },
+  {
+    "id": 46,
+    "command": "tar -xzf [ARCHIVE.tar.gz]",
+    "category": "Файлы",
+    "description": "Распаковывает сжатый tar архив.",
+    "usage": "tar [OPTIONS] ARCHIVE",
+    "parameters": [
+      {
+        "name": "-x, --extract",
+        "description": "Извлечь файлы из архива"
+      },
+      {
+        "name": "-z, --gzip",
+        "description": "Распаковать gzip архив"
+      },
+      {
+        "name": "-f, --file",
+        "description": "Имя архивного файла"
+      }
+    ],
+    "examples": [
+      "tar -xzf backup.tar.gz",
+      "tar -xzf archive.tar.gz -C /target/directory",
+      "tar -xzf data.tar.gz --strip-components=1"
+    ]
+  },
+  {
+    "id": 47,
+    "command": "zip -r [ARCHIVE.zip] [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Создает zip архив.",
+    "usage": "zip [OPTIONS] ARCHIVE FILES",
+    "parameters": [
+      {
+        "name": "-r",
+        "description": "Рекурсивное добавление директорий"
+      },
+      {
+        "name": "-9",
+        "description": "Максимальное сжатие"
+      }
+    ],
+    "examples": [
+      "zip -r archive.zip /path/to/directory",
+      "zip -r -9 backup.zip /important/data",
+      "zip -r logs.zip /var/log/"
+    ]
+  },
+  {
+    "id": 48,
+    "command": "unzip [ARCHIVE.zip]",
+    "category": "Файлы",
+    "description": "Распаковывает zip архив.",
+    "usage": "unzip [OPTIONS] ARCHIVE",
+    "parameters": [
+      {
+        "name": "-d",
+        "description": "Извлечь в указанную директорию"
+      },
+      {
+        "name": "-l",
+        "description": "Показать список файлов в архиве"
+      }
+    ],
+    "examples": [
+      "unzip archive.zip",
+      "unzip archive.zip -d /target/directory",
+      "unzip -l archive.zip"
+    ]
+  },
+  {
+    "id": 49,
+    "command": "gzip [FILE]",
+    "category": "Файлы",
+    "description": "Сжимает файл с помощью gzip.",
+    "usage": "gzip [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-k, --keep",
+        "description": "Сохранить оригинальный файл"
+      },
+      {
+        "name": "-9",
+        "description": "Максимальное сжатие"
+      }
+    ],
+    "examples": [
+      "gzip large_file.log",
+      "gzip -k important_file.txt",
+      "gzip -9 huge_database.sql"
+    ]
+  },
+  {
+    "id": 50,
+    "command": "gunzip [FILE.gz]",
+    "category": "Файлы",
+    "description": "Распаковывает файл, сжатый с помощью gzip.",
+    "usage": "gunzip [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-k, --keep",
+        "description": "Сохранить сжатый файл"
+      }
+    ],
+    "examples": [
+      "gunzip file.gz",
+      "gunzip -k compressed.gz",
+      "gunzip *.gz"
+    ]
+  },
+  {
+    "id": 51,
+    "command": "useradd [USERNAME]",
+    "category": "Пользователи",
+    "description": "Создает нового пользователя.",
+    "usage": "sudo useradd [OPTIONS] USERNAME",
+    "parameters": [
+      {
+        "name": "-m, --create-home",
+        "description": "Создать домашнюю директорию"
+      },
+      {
+        "name": "-s, --shell",
+        "description": "Указать shell пользователя"
+      }
+    ],
+    "examples": [
+      "sudo useradd newuser",
+      "sudo useradd -m -s /bin/bash john",
+      "sudo useradd -g developers alice"
+    ]
+  },
+  {
+    "id": 52,
+    "command": "usermod [OPTIONS] [USERNAME]",
+    "category": "Пользователи",
+    "description": "Изменяет параметры существующего пользователя.",
+    "usage": "sudo usermod [OPTIONS] USERNAME",
+    "parameters": [
+      {
+        "name": "-aG",
+        "description": "Добавить пользователя в группы"
+      },
+      {
+        "name": "-L, --lock",
+        "description": "Заблокировать учетную запись"
+      }
+    ],
+    "examples": [
+      "sudo usermod -aG sudo username",
+      "sudo usermod -L lockeduser",
+      "sudo usermod -s /bin/bash username"
+    ]
+  },
+  {
+    "id": 53,
+    "command": "userdel [USERNAME]",
+    "category": "Пользователи",
+    "description": "Удаляет пользователя.",
+    "usage": "sudo userdel [OPTIONS] USERNAME",
+    "parameters": [
+      {
+        "name": "-r, --remove",
+        "description": "Удалить домашнюю директорию и почту"
+      }
+    ],
+    "examples": [
+      "sudo userdel olduser",
+      "sudo userdel -r deleteduser",
+      "sudo userdel -f forcibledelete"
+    ]
+  },
+  {
+    "id": 54,
+    "command": "passwd [USERNAME]",
+    "category": "Пользователи",
+    "description": "Изменяет пароль пользователя.",
+    "usage": "sudo passwd [OPTIONS] USERNAME",
+    "parameters": [
+      {
+        "name": "-l, --lock",
+        "description": "Заблокировать пароль пользователя"
+      },
+      {
+        "name": "-u, --unlock",
+        "description": "Разблокировать пароль пользователя"
+      }
+    ],
+    "examples": [
+      "sudo passwd username",
+      "sudo passwd -l lockeduser",
+      "sudo passwd -u unlockeduser"
+    ]
+  },
+  {
+    "id": 55,
+    "command": "groupadd [GROUPNAME]",
+    "category": "Пользователи",
+    "description": "Создает новую группу.",
+    "usage": "sudo groupadd [OPTIONS] GROUPNAME",
+    "parameters": [
+      {
+        "name": "-g",
+        "description": "Указать GID (идентификатор группы)"
+      }
+    ],
+    "examples": [
+      "sudo groupadd developers",
+      "sudo groupadd -g 1001 admins",
+      "sudo groupadd testgroup"
+    ]
+  },
+  {
+    "id": 56,
+    "command": "groupdel [GROUPNAME]",
+    "category": "Пользователи",
+    "description": "Удаляет группу.",
+    "usage": "sudo groupdel GROUPNAME",
+    "parameters": [],
+    "examples": [
+      "sudo groupdel oldgroup",
+      "sudo groupdel testgroup"
+    ]
+  },
+  {
+    "id": 57,
+    "command": "visudo",
+    "category": "Пользователи",
+    "description": "Безопасное редактирование файла sudoers.",
+    "usage": "sudo visudo",
+    "parameters": [],
+    "examples": [
+      "sudo visudo",
+      "sudo EDITOR=nano visudo"
+    ]
+  },
+  {
+    "id": 58,
+    "command": "sudo -l",
+    "category": "Пользователи",
+    "description": "Показывает, какие команды пользователь может выполнять с sudo.",
+    "usage": "sudo -l",
+    "parameters": [],
+    "examples": [
+      "sudo -l",
+      "sudo -l -U username"
+    ]
+  },
+  {
+    "id": 59,
+    "command": "who",
+    "category": "Пользователи",
+    "description": "Показывает, кто сейчас в системе.",
+    "usage": "who [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-b",
+        "description": "Время последней загрузки системы"
+      },
+      {
+        "name": "-r",
+        "description": "Текущий уровень запуска"
+      }
+    ],
+    "examples": [
+      "who",
+      "who -b",
+      "who -u"
+    ]
+  },
+  {
+    "id": 60,
+    "command": "w",
+    "category": "Пользователи",
+    "description": "Показывает, кто в системе и что они делают.",
+    "usage": "w [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-h, --no-header",
+        "description": "Не показывать заголовок"
+      },
+      {
+        "name": "-u",
+        "description": "Игнорировать имена пользователей"
+      }
+    ],
+    "examples": [
+      "w",
+      "w -h",
+      "w -u"
+    ]
+  },
+  {
+    "id": 61,
+    "command": "last",
+    "category": "Пользователи",
+    "description": "Показывает историю входа пользователей.",
+    "usage": "last [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-n",
+        "description": "Показать только N последних записей"
+      },
+      {
+        "name": "-x",
+        "description": "Показать выключения и изменения уровня запуска"
+      }
+    ],
+    "examples": [
+      "last",
+      "last -n 10",
+      "last username"
+    ]
+  },
+  {
+    "id": 62,
+    "command": "id [USERNAME]",
+    "category": "Пользователи",
+    "description": "Показывает идентификаторы пользователя и группы.",
+    "usage": "id [OPTIONS] USERNAME",
+    "parameters": [
+      {
+        "name": "-u",
+        "description": "Показать только UID"
+      },
+      {
+        "name": "-g",
+        "description": "Показать только GID"
+      }
+    ],
+    "examples": [
+      "id",
+      "id username",
+      "id -u alice"
+    ]
+  },
+  {
+    "id": 63,
+    "command": "groups [USERNAME]",
+    "category": "Пользователи",
+    "description": "Показывает группы, в которых состоит пользователь.",
+    "usage": "groups [USERNAME]",
+    "parameters": [],
+    "examples": [
+      "groups",
+      "groups username",
+      "groups root"
+    ]
+  },
+  {
+    "id": 64,
+    "command": "crontab -l",
+    "category": "Планировщик",
+    "description": "Показывает текущие задачи cron для пользователя.",
+    "usage": "crontab [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-l, --list",
+        "description": "Список задач cron"
+      },
+      {
+        "name": "-e, --edit",
+        "description": "Редактировать задачи cron"
+      }
+    ],
+    "examples": [
+      "crontab -l",
+      "crontab -e",
+      "crontab -u username -l"
+    ]
+  },
+  {
+    "id": 65,
+    "command": "crontab -e",
+    "category": "Планировщик",
+    "description": "Редактирует задачи cron для текущего пользователя.",
+    "usage": "crontab [OPTIONS]",
+    "parameters": [],
+    "examples": [
+      "crontab -e",
+      "crontab -u www-data -e"
+    ]
+  },
+  {
+    "id": 66,
+    "command": "at [TIME]",
+    "category": "Планировщик",
+    "description": "Выполняет команду в указанное время однократно.",
+    "usage": "at [OPTIONS] TIME",
+    "parameters": [
+      {
+        "name": "-f",
+        "description": "Прочитать команды из файла"
+      },
+      {
+        "name": "-l",
+        "description": "Показать запланированные задачи"
+      }
+    ],
+    "examples": [
+      "at now + 5 minutes",
+      "at 23:59",
+      "at -f script.sh 10:00"
+    ]
+  },
+  {
+    "id": 67,
+    "command": "atq",
+    "category": "Планировщик",
+    "description": "Показывает очередь задач at.",
+    "usage": "atq",
+    "parameters": [],
+    "examples": [
+      "atq",
+      "atq -u username"
+    ]
+  },
+  {
+    "id": 68,
+    "command": "atrm [JOB_NUMBER]",
+    "category": "Планировщик",
+    "description": "Удаляет задачу из очереди at.",
+    "usage": "atrm JOB_NUMBER",
+    "parameters": [],
+    "examples": [
+      "atrm 1",
+      "atrm 2 3 4"
+    ]
+  },
+  {
+    "id": 69,
+    "command": "systemctl list-timers",
+    "category": "Планировщик",
+    "description": "Показывает все systemd таймеры.",
+    "usage": "systemctl list-timers",
+    "parameters": [
+      {
+        "name": "--all",
+        "description": "Показать все таймеры (включая неактивные)"
+      }
+    ],
+    "examples": [
+      "systemctl list-timers",
+      "systemctl list-timers --all",
+      "systemctl list-timers --no-pager"
+    ]
+  },
+  {
+    "id": 70,
+    "command": "systemctl daemon-reload",
+    "category": "SystemD",
+    "description": "Перезагружает конфигурацию systemd.",
+    "usage": "sudo systemctl daemon-reload",
+    "parameters": [],
+    "examples": [
+      "sudo systemctl daemon-reload",
+      "systemctl daemon-reload && systemctl restart nginx"
+    ]
+  },
+  {
+    "id": 71,
+    "command": "systemctl list-units",
+    "category": "SystemD",
+    "description": "Показывает все загруженные юниты systemd.",
+    "usage": "systemctl list-units [OPTIONS]",
+    "parameters": [
+      {
+        "name": "--type=service",
+        "description": "Показать только службы"
+      },
+      {
+        "name": "--state=failed",
+        "description": "Показать только failed юниты"
+      }
+    ],
+    "examples": [
+      "systemctl list-units",
+      "systemctl list-units --type=service",
+      "systemctl list-units --state=failed"
+    ]
+  },
+  {
+    "id": 72,
+    "command": "systemctl list-unit-files",
+    "category": "SystemD",
+    "description": "Показывает все доступные юниты systemd.",
+    "usage": "systemctl list-unit-files",
+    "parameters": [
+      {
+        "name": "--type=service",
+        "description": "Показать только файлы служб"
+      }
+    ],
+    "examples": [
+      "systemctl list-unit-files",
+      "systemctl list-unit-files --type=service",
+      "systemctl list-unit-files | grep enabled"
+    ]
+  },
+  {
+    "id": 73,
+    "command": "systemctl cat [UNIT]",
+    "category": "SystemD",
+    "description": "Показывает содержимое файла юнита systemd.",
+    "usage": "systemctl cat UNIT",
+    "parameters": [],
+    "examples": [
+      "systemctl cat nginx.service",
+      "systemctl cat docker.service",
+      "systemctl cat sshd.service"
+    ]
+  },
+  {
+    "id": 74,
+    "command": "systemctl edit [UNIT]",
+    "category": "SystemD",
+    "description": "Редактирует юнит systemd (создает override).",
+    "usage": "sudo systemctl edit UNIT",
+    "parameters": [],
+    "examples": [
+      "sudo systemctl edit nginx.service",
+      "sudo systemctl edit docker.service",
+      "sudo systemctl edit --full ssh.service"
+    ]
+  },
+  {
+    "id": 75,
+    "command": "journalctl --since \"[TIME]\"",
+    "category": "Логи",
+    "description": "Показывает логи с определенного времени.",
+    "usage": "sudo journalctl --since TIME",
+    "parameters": [
+      {
+        "name": "--since",
+        "description": "Показать записи с указанного времени"
+      },
+      {
+        "name": "--until",
+        "description": "Показать записи до указанного времени"
+      }
+    ],
+    "examples": [
+      "sudo journalctl --since \"2024-01-01 00:00:00\"",
+      "sudo journalctl --since \"1 hour ago\"",
+      "sudo journalctl --since yesterday"
+    ]
+  },
+  {
+    "id": 76,
+    "command": "journalctl --disk-usage",
+    "category": "Логи",
+    "description": "Показывает, сколько дискового пространства занимают журналы.",
+    "usage": "sudo journalctl --disk-usage",
+    "parameters": [],
+    "examples": [
+      "sudo journalctl --disk-usage",
+      "journalctl --disk-usage --no-pager"
+    ]
+  },
+  {
+    "id": 77,
+    "command": "journalctl --vacuum-size=[SIZE]",
+    "category": "Логи",
+    "description": "Очищает журналы до указанного размера.",
+    "usage": "sudo journalctl --vacuum-size=SIZE",
+    "parameters": [
+      {
+        "name": "--vacuum-size",
+        "description": "Оставить указанный объем журналов"
+      },
+      {
+        "name": "--vacuum-time",
+        "description": "Оставить журналы за указанный период"
+      }
+    ],
+    "examples": [
+      "sudo journalctl --vacuum-size=500M",
+      "sudo journalctl --vacuum-time=30d",
+      "sudo journalctl --vacuum-files=5"
+    ]
+  },
+  {
+    "id": 78,
+    "command": "dmesg",
+    "category": "Логи",
+    "description": "Показывает сообщения ядра (kernel ring buffer).",
+    "usage": "sudo dmesg [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-H, --human",
+        "description": "Человеко-читаемый вывод"
+      },
+      {
+        "name": "-T, --ctime",
+        "description": "Показать человеко-читаемые временные метки"
+      }
+    ],
+    "examples": [
+      "sudo dmesg",
+      "sudo dmesg -H",
+      "sudo dmesg -T | tail -20"
+    ]
+  },
+  {
+    "id": 79,
+    "command": "dmesg | grep -i error",
+    "category": "Логи",
+    "description": "Ищет ошибки в сообщениях ядра.",
+    "usage": "sudo dmesg | grep [OPTIONS] PATTERN",
+    "parameters": [],
+    "examples": [
+      "sudo dmesg | grep -i error",
+      "sudo dmesg | grep -i fail",
+      "sudo dmesg | grep usb"
+    ]
+  },
+  {
+    "id": 80,
+    "command": "cat /var/log/syslog",
+    "category": "Логи",
+    "description": "Показывает содержимое системного лога.",
+    "usage": "cat [OPTIONS] FILE",
+    "parameters": [],
+    "examples": [
+      "cat /var/log/syslog",
+      "cat /var/log/syslog | tail -100",
+      "cat /var/log/syslog | grep cron"
+    ]
+  },
+  {
+    "id": 81,
+    "command": "cat /var/log/auth.log",
+    "category": "Логи",
+    "description": "Показывает лог аутентификации.",
+    "usage": "cat [OPTIONS] FILE",
+    "parameters": [],
+    "examples": [
+      "cat /var/log/auth.log",
+      "cat /var/log/auth.log | grep \"Failed password\"",
+      "cat /var/log/auth.log | tail -50"
+    ]
+  },
+  {
+    "id": 82,
+    "command": "tail -f /var/log/nginx/access.log",
+    "category": "Логи",
+    "description": "Следит за логом доступа Nginx в реальном времени.",
+    "usage": "tail [OPTIONS] FILE",
+    "parameters": [],
+    "examples": [
+      "tail -f /var/log/nginx/access.log",
+      "tail -f /var/log/nginx/error.log",
+      "tail -f /var/log/apache2/access.log"
+    ]
+  },
+  {
+    "id": 83,
+    "command": "ls -la",
+    "category": "Файлы",
+    "description": "Показывает подробный список файлов и директорий.",
+    "usage": "ls [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-l",
+        "description": "Длинный формат вывода"
+      },
+      {
+        "name": "-a",
+        "description": "Показать скрытые файлы"
+      },
+      {
+        "name": "-h",
+        "description": "Человеко-читаемые размеры"
+      }
+    ],
+    "examples": [
+      "ls -la",
+      "ls -lah",
+      "ls -la /etc/"
+    ]
+  },
+  {
+    "id": 84,
+    "command": "pwd",
+    "category": "Файлы",
+    "description": "Показывает текущую рабочую директорию.",
+    "usage": "pwd",
+    "parameters": [],
+    "examples": [
+      "pwd",
+      "pwd -P"
+    ]
+  },
+  {
+    "id": 85,
+    "command": "cd [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Изменяет текущую директорию.",
+    "usage": "cd DIRECTORY",
+    "parameters": [],
+    "examples": [
+      "cd /var/log",
+      "cd ..",
+      "cd ~"
+    ]
+  },
+  {
+    "id": 86,
+    "command": "cp [SOURCE] [DESTINATION]",
+    "category": "Файлы",
+    "description": "Копирует файлы и директории.",
+    "usage": "cp [OPTIONS] SOURCE DESTINATION",
+    "parameters": [
+      {
+        "name": "-r, --recursive",
+        "description": "Рекурсивное копирование директорий"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "cp file1.txt file2.txt",
+      "cp -r /source/dir /destination/dir",
+      "cp -v *.log /backup/"
+    ]
+  },
+  {
+    "id": 87,
+    "command": "mv [SOURCE] [DESTINATION]",
+    "category": "Файлы",
+    "description": "Перемещает или переименовывает файлы и директории.",
+    "usage": "mv [OPTIONS] SOURCE DESTINATION",
+    "parameters": [
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-i, --interactive",
+        "description": "Запрашивать подтверждение перед перезаписью"
+      }
+    ],
+    "examples": [
+      "mv oldname.txt newname.txt",
+      "mv /source/file /destination/file",
+      "mv -i important.txt backup/"
+    ]
+  },
+  {
+    "id": 88,
+    "command": "rm [FILE]",
+    "category": "Файлы",
+    "description": "Удаляет файлы и директории.",
+    "usage": "rm [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-r, --recursive",
+        "description": "Рекурсивное удаление директорий"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Игнорировать несуществующие файлы и не запрашивать подтверждение"
+      }
+    ],
+    "examples": [
+      "rm file.txt",
+      "rm -r directory/",
+      "rm -rf temp/"
+    ]
+  },
+  {
+    "id": 89,
+    "command": "mkdir [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Создает новую директорию.",
+    "usage": "mkdir [OPTIONS] DIRECTORY",
+    "parameters": [
+      {
+        "name": "-p, --parents",
+        "description": "Создать родительские директории, если они не существуют"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "mkdir newdir",
+      "mkdir -p /path/to/new/dir",
+      "mkdir -pv dir1/dir2/dir3"
+    ]
+  },
+  {
+    "id": 90,
+    "command": "rmdir [DIRECTORY]",
+    "category": "Файлы",
+    "description": "Удаляет пустые директории.",
+    "usage": "rmdir [OPTIONS] DIRECTORY",
+    "parameters": [
+      {
+        "name": "-p, --parents",
+        "description": "Удалить директорию и ее родительские директории"
+      }
+    ],
+    "examples": [
+      "rmdir emptydir",
+      "rmdir -p dir1/dir2/dir3",
+      "rmdir --ignore-fail-on-non-empty directory"
+    ]
+  },
+  {
+    "id": 91,
+    "command": "touch [FILE]",
+    "category": "Файлы",
+    "description": "Создает пустой файл или обновляет временную метку существующего файла.",
+    "usage": "touch [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Изменить только время доступа"
+      },
+      {
+        "name": "-m",
+        "description": "Изменить только время модификации"
+      }
+    ],
+    "examples": [
+      "touch newfile.txt",
+      "touch -t 202401010000 oldfile.txt",
+      "touch file1.txt file2.txt file3.txt"
+    ]
+  },
+  {
+    "id": 92,
+    "command": "ln -s [TARGET] [LINKNAME]",
+    "category": "Файлы",
+    "description": "Создает символическую ссылку.",
+    "usage": "ln [OPTIONS] TARGET LINKNAME",
+    "parameters": [
+      {
+        "name": "-s, --symbolic",
+        "description": "Создать символическую ссылку"
+      },
+      {
+        "name": "-f, --force",
+        "description": "Принудительное создание ссылки"
+      }
+    ],
+    "examples": [
+      "ln -s /target/file linkname",
+      "ln -sf /new/target existinglink",
+      "ln -s /usr/bin/python3 python"
+    ]
+  },
+  {
+    "id": 93,
+    "command": "stat [FILE]",
+    "category": "Файлы",
+    "description": "Показывает детальную информацию о файле или директории.",
+    "usage": "stat [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-c, --format",
+        "description": "Использовать указанный формат вывода"
+      },
+      {
+        "name": "-L, --dereference",
+        "description": "Следовать по ссылкам"
+      }
+    ],
+    "examples": [
+      "stat file.txt",
+      "stat -c \"%A %n\" /etc/passwd",
+      "stat -L symbolic_link"
+    ]
+  },
+  {
+    "id": 94,
+    "command": "file [FILE]",
+    "category": "Файлы",
+    "description": "Определяет тип файла.",
+    "usage": "file [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-i, --mime",
+        "description": "Показать MIME тип"
+      },
+      {
+        "name": "-b, --brief",
+        "description": "Краткий вывод (только тип файла)"
+      }
+    ],
+    "examples": [
+      "file unknown.bin",
+      "file -i image.jpg",
+      "file -b /usr/bin/ls"
+    ]
+  },
+  {
+    "id": 95,
+    "command": "strings [BINARY]",
+    "category": "Файлы",
+    "description": "Извлекает печатные строки из бинарного файла.",
+    "usage": "strings [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-n",
+        "description": "Минимальная длина строки"
+      },
+      {
+        "name": "-t",
+        "description": "Показать смещение строки"
+      }
+    ],
+    "examples": [
+      "strings /usr/bin/ls",
+      "strings -n 10 binaryfile",
+      "strings -t x executable"
+    ]
+  },
+  {
+    "id": 96,
+    "command": "hexdump -C [FILE]",
+    "category": "Файлы",
+    "description": "Показывает шестнадцатеричное представление файла.",
+    "usage": "hexdump [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-C",
+        "description": "Канонический hex+ASCII вывод"
+      },
+      {
+        "name": "-n",
+        "description": "Показать только первые N байт"
+      }
+    ],
+    "examples": [
+      "hexdump -C file.bin",
+      "hexdump -C -n 512 /boot/vmlinuz",
+      "hexdump -C binary | head -20"
+    ]
+  },
+  {
+    "id": 97,
+    "command": "objdump -d [BINARY]",
+    "category": "Файлы",
+    "description": "Дизассемблирует бинарный файл.",
+    "usage": "objdump [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-d, --disassemble",
+        "description": "Дизассемблировать исполняемые секции"
+      },
+      {
+        "name": "-M",
+        "description": "Архитектура для дизассемблирования"
+      }
+    ],
+    "examples": [
+      "objdump -d /usr/bin/ls",
+      "objdump -d -M intel program",
+      "objdump -t binary"
+    ]
+  },
+  {
+    "id": 98,
+    "command": "readelf -a [BINARY]",
+    "category": "Файлы",
+    "description": "Показывает информацию о ELF файле.",
+    "usage": "readelf [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать всю информацию"
+      },
+      {
+        "name": "-h, --file-header",
+        "description": "Показать заголовок ELF файла"
+      }
+    ],
+    "examples": [
+      "readelf -a /usr/bin/bash",
+      "readelf -h executable",
+      "readelf -s library.so"
+    ]
+  },
+  {
+    "id": 99,
+    "command": "strip [BINARY]",
+    "category": "Файлы",
+    "description": "Удаляет символы отладки из бинарного файла.",
+    "usage": "strip [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-s, --strip-all",
+        "description": "Удалить все символы и информацию для пересборки"
+      },
+      {
+        "name": "-g, --strip-debug",
+        "description": "Удалить только символы отладки"
+      }
+    ],
+    "examples": [
+      "strip binary",
+      "strip -s executable",
+      "strip -g debug_binary"
+    ]
+  },
+  {
+    "id": 100,
+    "command": "ldd [BINARY]",
+    "category": "Файлы",
+    "description": "Показывает общие библиотеки, от которых зависит бинарный файл.",
+    "usage": "ldd [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-u, --unused",
+        "description": "Показать неиспользуемые зависимости"
+      }
+    ],
+    "examples": [
+      "ldd /usr/bin/ls",
+      "ldd -v program",
+      "ldd -u library.so"
+    ]
+  },
+  {
+    "id": 101,
+    "command": "nm [BINARY]",
+    "category": "Файлы",
+    "description": "Показывает символы из объектных файлов.",
+    "usage": "nm [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-D, --dynamic",
+        "description": "Показать динамические символы"
+      },
+      {
+        "name": "-g, --extern-only",
+        "description": "Показать только внешние символы"
+      }
+    ],
+    "examples": [
+      "nm /usr/bin/ls",
+      "nm -D library.so",
+      "nm -g executable"
+    ]
+  },
+  {
+    "id": 102,
+    "command": "strace [COMMAND]",
+    "category": "Отладка",
+    "description": "Трассирует системные вызовы и сигналы процесса.",
+    "usage": "strace [OPTIONS] COMMAND",
+    "parameters": [
+      {
+        "name": "-e",
+        "description": "Фильтрация по системным вызовам"
+      },
+      {
+        "name": "-p",
+        "description": "Присоединиться к работающему процессу"
+      }
+    ],
+    "examples": [
+      "strace ls -la",
+      "strace -e open,read ls",
+      "strace -p 1234"
+    ]
+  },
+  {
+    "id": 103,
+    "command": "ltrace [COMMAND]",
+    "category": "Отладка",
+    "description": "Трассирует библиотечные вызовы процесса.",
+    "usage": "ltrace [OPTIONS] COMMAND",
+    "parameters": [
+      {
+        "name": "-S",
+        "description": "Трассировать и системные, и библиотечные вызовы"
+      },
+      {
+        "name": "-p",
+        "description": "Присоединиться к работающему процессу"
+      }
+    ],
+    "examples": [
+      "ltrace ls",
+      "ltrace -S program",
+      "ltrace -p 5678"
+    ]
+  },
+  {
+    "id": 104,
+    "command": "gdb [PROGRAM]",
+    "category": "Отладка",
+    "description": "Отладчик GNU для отладки программ.",
+    "usage": "gdb [OPTIONS] PROGRAM",
+    "parameters": [
+      {
+        "name": "-p",
+        "description": "Присоединиться к работающему процессу"
+      },
+      {
+        "name": "-c",
+        "description": "Анализ core дампа"
+      }
+    ],
+    "examples": [
+      "gdb ./program",
+      "gdb -p 1234",
+      "gdb -c core.program"
+    ]
+  },
+  {
+    "id": 105,
+    "command": "valgrind [PROGRAM]",
+    "category": "Отладка",
+    "description": "Инструмент для обнаружения утечек памяти и ошибок.",
+    "usage": "valgrind [OPTIONS] PROGRAM",
+    "parameters": [
+      {
+        "name": "--leak-check=full",
+        "description": "Полная проверка утечек памяти"
+      },
+      {
+        "name": "--tool=memcheck",
+        "description": "Использовать инструмент memcheck"
+      }
+    ],
+    "examples": [
+      "valgrind ./program",
+      "valgrind --leak-check=full ./test",
+      "valgrind --tool=memcheck program"
+    ]
+  },
+  {
+    "id": 106,
+    "command": "time [COMMAND]",
+    "category": "Мониторинг",
+    "description": "Измеряет время выполнения команды.",
+    "usage": "time COMMAND",
+    "parameters": [],
+    "examples": [
+      "time ls -R /",
+      "/usr/bin/time -v ./script.sh",
+      "time (make && make install)"
+    ]
+  },
+  {
+    "id": 107,
+    "command": "watch [COMMAND]",
+    "category": "Мониторинг",
+    "description": "Регулярно выполняет команду и показывает результат.",
+    "usage": "watch [OPTIONS] COMMAND",
+    "parameters": [
+      {
+        "name": "-n",
+        "description": "Интервал в секундах между выполнениями"
+      },
+      {
+        "name": "-d, --differences",
+        "description": "Подсвечивать изменения"
+      }
+    ],
+    "examples": [
+      "watch -n 1 df -h",
+      "watch -d \"netstat -an | grep ESTABLISHED\"",
+      "watch -n 5 \"ps aux | grep python\""
+    ]
+  },
+  {
+    "id": 108,
+    "command": "htop",
+    "category": "Мониторинг",
+    "description": "Интерактивный монитор процессов (улучшенная версия top).",
+    "usage": "htop",
+    "parameters": [
+      {
+        "name": "-u",
+        "description": "Показать процессы только указанного пользователя"
+      },
+      {
+        "name": "-s",
+        "description": "Сортировать по указанной колонке"
+      }
+    ],
+    "examples": [
+      "htop",
+      "htop -u www-data",
+      "htop -s PERCENT_CPU"
+    ]
+  },
+  {
+    "id": 109,
+    "command": "iotop",
+    "category": "Мониторинг",
+    "description": "Мониторинг ввода/вывода в реальном времени.",
+    "usage": "sudo iotop",
+    "parameters": [
+      {
+        "name": "-o, --only",
+        "description": "Показать только процессы, выполняющие I/O"
+      },
+      {
+        "name": "-a, --accumulated",
+        "description": "Показать накопленную статистику"
+      }
+    ],
+    "examples": [
+      "sudo iotop",
+      "sudo iotop -o",
+      "sudo iotop -a"
+    ]
+  },
+  {
+    "id": 110,
+    "command": "iftop",
+    "category": "Мониторинг",
+    "description": "Мониторинг сетевого трафика в реальном времени.",
+    "usage": "sudo iftop",
+    "parameters": [
+      {
+        "name": "-i",
+        "description": "Указать сетевой интерфейс"
+      },
+      {
+        "name": "-n",
+        "description": "Не разрешать имена хостов"
+      }
+    ],
+    "examples": [
+      "sudo iftop",
+      "sudo iftop -i eth0",
+      "sudo iftop -n"
+    ]
+  },
+  {
+    "id": 111,
+    "command": "nethogs",
+    "category": "Мониторинг",
+    "description": "Мониторинг сетевого трафика по процессам.",
+    "usage": "sudo nethogs",
+    "parameters": [
+      {
+        "name": "-d",
+        "description": "Интервал обновления в секундах"
+      },
+      {
+        "name": "-t",
+        "description": "Режим трассировки"
+      }
+    ],
+    "examples": [
+      "sudo nethogs",
+      "sudo nethogs eth0",
+      "sudo nethogs -d 5"
+    ]
+  },
+  {
+    "id": 112,
+    "command": "bmon",
+    "category": "Мониторинг",
+    "description": "Мониторинг пропускной способности сети.",
+    "usage": "bmon",
+    "parameters": [
+      {
+        "name": "-p",
+        "description": "Показать указанные интерфейсы"
+      },
+      {
+        "name": "-r",
+        "description": "Интервал обновления в миллисекундах"
+      }
+    ],
+    "examples": [
+      "bmon",
+      "bmon -p eth0,wlan0",
+      "bmon -r 1000"
+    ]
+  },
+  {
+    "id": 113,
+    "command": "nmon",
+    "category": "Мониторинг",
+    "description": "Мониторинг производительности системы.",
+    "usage": "nmon",
+    "parameters": [
+      {
+        "name": "-c",
+        "description": "Количество снимков"
+      },
+      {
+        "name": "-s",
+        "description": "Интервал между снимками в секундах"
+      }
+    ],
+    "examples": [
+      "nmon",
+      "nmon -c 100 -s 2",
+      "nmon -f -s 5 -c 100"
+    ]
+  },
+  {
+    "id": 114,
+    "command": "vmstat [INTERVAL]",
+    "category": "Мониторинг",
+    "description": "Показывает статистику виртуальной памяти, процессов и CPU.",
+    "usage": "vmstat [OPTIONS] [INTERVAL]",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Показать активную/неактивную память"
+      },
+      {
+        "name": "-s",
+        "description": "Показать сводную статистику"
+      }
+    ],
+    "examples": [
+      "vmstat",
+      "vmstat 2 5",
+      "vmstat -s"
+    ]
+  },
+  {
+    "id": 115,
+    "command": "iostat [INTERVAL]",
+    "category": "Мониторинг",
+    "description": "Показывает статистику ввода/вывода и загрузки CPU.",
+    "usage": "iostat [OPTIONS] [INTERVAL]",
+    "parameters": [
+      {
+        "name": "-c",
+        "description": "Показать только статистику CPU"
+      },
+      {
+        "name": "-d",
+        "description": "Показать только статистику устройств"
+      }
+    ],
+    "examples": [
+      "iostat",
+      "iostat 2",
+      "iostat -c -d 2"
+    ]
+  },
+  {
+    "id": 116,
+    "command": "mpstat [INTERVAL]",
+    "category": "Мониторинг",
+    "description": "Показывает статистику загрузки процессоров.",
+    "usage": "mpstat [OPTIONS] [INTERVAL]",
+    "parameters": [
+      {
+        "name": "-P",
+        "description": "Показать статистику для указанного процессора"
+      }
+    ],
+    "examples": [
+      "mpstat",
+      "mpstat 2",
+      "mpstat -P ALL 2"
+    ]
+  },
+  {
+    "id": 117,
+    "command": "sar [INTERVAL]",
+    "category": "Мониторинг",
+    "description": "Собирает и показывает статистику производительности системы.",
+    "usage": "sar [OPTIONS] [INTERVAL]",
+    "parameters": [
+      {
+        "name": "-u",
+        "description": "Статистика CPU"
+      },
+      {
+        "name": "-r",
+        "description": "Статистика памяти"
+      }
+    ],
+    "examples": [
+      "sar",
+      "sar 2 5",
+      "sar -u -r 1 3"
+    ]
+  },
+  {
+    "id": 118,
+    "command": "pidstat [INTERVAL]",
+    "category": "Мониторинг",
+    "description": "Показывает статистику по процессам.",
+    "usage": "pidstat [OPTIONS] [INTERVAL]",
+    "parameters": [
+      {
+        "name": "-u",
+        "description": "Статистика CPU по процессам"
+      },
+      {
+        "name": "-d",
+        "description": "Статистика I/O по процессам"
+      }
+    ],
+    "examples": [
+      "pidstat",
+      "pidstat 2",
+      "pidstat -u -d 2"
+    ]
+  },
+  {
+    "id": 119,
+    "command": "lsof",
+    "category": "Мониторинг",
+    "description": "Показывает открытые файлы и процессы, которые их используют.",
+    "usage": "sudo lsof [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-i",
+        "description": "Показать сетевые соединения"
+      },
+      {
+        "name": "-p",
+        "description": "Показать файлы, открытые указанным процессом"
+      }
+    ],
+    "examples": [
+      "sudo lsof",
+      "sudo lsof -i :80",
+      "sudo lsof -p 1234"
+    ]
+  },
+  {
+    "id": 120,
+    "command": "fuser [FILE]",
+    "category": "Мониторинг",
+    "description": "Определяет процессы, использующие указанный файл или сокет.",
+    "usage": "fuser [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-k, --kill",
+        "description": "Завершить процессы"
+      }
+    ],
+    "examples": [
+      "fuser /var/log/syslog",
+      "fuser -v /dev/sda1",
+      "fuser -k -9 /home/user/file.lock"
+    ]
+  },
+  {
+    "id": 121,
+    "command": "lspci",
+    "category": "Оборудование",
+    "description": "Показывает информацию о PCI устройствах.",
+    "usage": "lspci [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-k",
+        "description": "Показать драйверы устройств"
+      }
+    ],
+    "examples": [
+      "lspci",
+      "lspci -v",
+      "lspci -v | grep VGA"
+    ]
+  },
+  {
+    "id": 122,
+    "command": "lsusb",
+    "category": "Оборудование",
+    "description": "Показывает информацию о USB устройствах.",
+    "usage": "lsusb [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      },
+      {
+        "name": "-t",
+        "description": "Древовидный вывод"
+      }
+    ],
+    "examples": [
+      "lsusb",
+      "lsusb -v",
+      "lsusb -t"
+    ]
+  },
+  {
+    "id": 123,
+    "command": "lshw",
+    "category": "Оборудование",
+    "description": "Показывает детальную информацию об оборудовании.",
+    "usage": "sudo lshw [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-short",
+        "description": "Краткий вывод"
+      },
+      {
+        "name": "-html",
+        "description": "Вывод в HTML формате"
+      }
+    ],
+    "examples": [
+      "sudo lshw",
+      "sudo lshw -short",
+      "sudo lshw -html > hardware.html"
+    ]
+  },
+  {
+    "id": 124,
+    "command": "dmidecode",
+    "category": "Оборудование",
+    "description": "Показывает информацию об оборудовании из DMI таблицы.",
+    "usage": "sudo dmidecode [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-t",
+        "description": "Показать информацию по типу"
+      },
+      {
+        "name": "-s",
+        "description": "Показать одно значение по ключу"
+      }
+    ],
+    "examples": [
+      "sudo dmidecode",
+      "sudo dmidecode -t memory",
+      "sudo dmidecode -s system-serial-number"
+    ]
+  },
+  {
+    "id": 125,
+    "command": "hdparm -i /dev/sda",
+    "category": "Оборудование",
+    "description": "Показывает информацию о жестком диске.",
+    "usage": "sudo hdparm [OPTIONS] DEVICE",
+    "parameters": [
+      {
+        "name": "-i",
+        "description": "Показать информацию о диске"
+      },
+      {
+        "name": "-I",
+        "description": "Подробная информация"
+      }
+    ],
+    "examples": [
+      "sudo hdparm -i /dev/sda",
+      "sudo hdparm -I /dev/sda",
+      "sudo hdparm -tT /dev/sda"
+    ]
+  },
+  {
+    "id": 126,
+    "command": "smartctl -a /dev/sda",
+    "category": "Оборудование",
+    "description": "Показывает SMART информацию о диске.",
+    "usage": "sudo smartctl [OPTIONS] DEVICE",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать всю информацию"
+      },
+      {
+        "name": "-H, --health",
+        "description": "Показать статус здоровья"
+      }
+    ],
+    "examples": [
+      "sudo smartctl -a /dev/sda",
+      "sudo smartctl -H /dev/sda",
+      "sudo smartctl -i /dev/sda"
+    ]
+  },
+  {
+    "id": 127,
+    "command": "badblocks -sv /dev/sda",
+    "category": "Оборудование",
+    "description": "Проверяет диск на наличие плохих блоков.",
+    "usage": "sudo badblocks [OPTIONS] DEVICE",
+    "parameters": [
+      {
+        "name": "-s",
+        "description": "Показать прогресс"
+      },
+      {
+        "name": "-v",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "sudo badblocks -sv /dev/sda",
+      "sudo badblocks -n /dev/sdb",
+      "sudo badblocks -w /dev/sdc"
+    ]
+  },
+  {
+    "id": 128,
+    "command": "lsmod",
+    "category": "Оборудование",
+    "description": "Показывает загруженные модули ядра.",
+    "usage": "lsmod",
+    "parameters": [],
+    "examples": [
+      "lsmod",
+      "lsmod | grep nvidia",
+      "lsmod | sort"
+    ]
+  },
+  {
+    "id": 129,
+    "command": "modinfo [MODULE]",
+    "category": "Оборудование",
+    "description": "Показывает информацию о модуле ядра.",
+    "usage": "modinfo [OPTIONS] MODULE",
+    "parameters": [],
+    "examples": [
+      "modinfo nvidia",
+      "modinfo -F version e1000",
+      "modinfo -n usb_storage"
+    ]
+  },
+  {
+    "id": 130,
+    "command": "modprobe [MODULE]",
+    "category": "Оборудование",
+    "description": "Загружает модуль ядра.",
+    "usage": "sudo modprobe [OPTIONS] MODULE",
+    "parameters": [
+      {
+        "name": "-r, --remove",
+        "description": "Выгрузить модуль"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "sudo modprobe vboxdrv",
+      "sudo modprobe -r nvidia",
+      "sudo modprobe -v usb_storage"
+    ]
+  },
+  {
+    "id": 131,
+    "command": "depmod",
+    "category": "Оборудование",
+    "description": "Генерирует зависимости между модулями ядра.",
+    "usage": "sudo depmod",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Обработать все модули"
+      },
+      {
+        "name": "-v",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "sudo depmod",
+      "sudo depmod -a",
+      "sudo depmod -av"
+    ]
+  },
+  {
+    "id": 132,
+    "command": "insmod [MODULE.ko]",
+    "category": "Оборудование",
+    "description": "Загружает модуль ядра (низкоуровневая команда).",
+    "usage": "sudo insmod MODULE",
+    "parameters": [],
+    "examples": [
+      "sudo insmod /lib/modules/$(uname -r)/kernel/drivers/net/e1000.ko",
+      "sudo insmod module.ko param=value"
+    ]
+  },
+  {
+    "id": 133,
+    "command": "rmmod [MODULE]",
+    "category": "Оборудование",
+    "description": "Выгружает модуль ядра.",
+    "usage": "sudo rmmod MODULE",
+    "parameters": [
+      {
+        "name": "-f, --force",
+        "description": "Принудительная выгрузка"
+      },
+      {
+        "name": "-v, --verbose",
+        "description": "Подробный вывод"
+      }
+    ],
+    "examples": [
+      "sudo rmmod nvidia",
+      "sudo rmmod -f module",
+      "sudo rmmod -v usb_storage"
+    ]
+  },
+  {
+    "id": 134,
+    "command": "uname -a",
+    "category": "Система",
+    "description": "Показывает информацию о системе и ядре.",
+    "usage": "uname [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать всю информацию"
+      },
+      {
+        "name": "-r, --kernel-release",
+        "description": "Показать версию ядра"
+      }
+    ],
+    "examples": [
+      "uname -a",
+      "uname -r",
+      "uname -m"
+    ]
+  },
+  {
+    "id": 135,
+    "command": "hostname",
+    "category": "Система",
+    "description": "Показывает или устанавливает имя хоста.",
+    "usage": "hostname [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-I, --all-ip-addresses",
+        "description": "Показать все IP адреса"
+      },
+      {
+        "name": "-f, --fqdn",
+        "description": "Показать полное доменное имя"
+      }
+    ],
+    "examples": [
+      "hostname",
+      "hostname -I",
+      "hostname -f"
+    ]
+  },
+  {
+    "id": 136,
+    "command": "hostnamectl",
+    "category": "Система",
+    "description": "Управляет именем хоста через systemd.",
+    "usage": "hostnamectl [OPTIONS]",
+    "parameters": [
+      {
+        "name": "status",
+        "description": "Показать текущий статус"
+      },
+      {
+        "name": "set-hostname",
+        "description": "Установить имя хоста"
+      }
+    ],
+    "examples": [
+      "hostnamectl status",
+      "sudo hostnamectl set-hostname newhostname",
+      "hostnamectl --static"
+    ]
+  },
+  {
+    "id": 137,
+    "command": "timedatectl",
+    "category": "Система",
+    "description": "Управляет временем и датой через systemd.",
+    "usage": "timedatectl [OPTIONS]",
+    "parameters": [
+      {
+        "name": "status",
+        "description": "Показать текущий статус"
+      },
+      {
+        "name": "set-time",
+        "description": "Установить время"
+      }
+    ],
+    "examples": [
+      "timedatectl status",
+      "sudo timedatectl set-time \"2024-01-01 12:00:00\"",
+      "timedatectl list-timezones"
+    ]
+  },
+  {
+    "id": 138,
+    "command": "localectl",
+    "category": "Система",
+    "description": "Управляет локалью и раскладкой клавиатуры через systemd.",
+    "usage": "localectl [OPTIONS]",
+    "parameters": [
+      {
+        "name": "status",
+        "description": "Показать текущий статус"
+      },
+      {
+        "name": "set-locale",
+        "description": "Установить локаль"
+      }
+    ],
+    "examples": [
+      "localectl status",
+      "sudo localectl set-locale LANG=en_US.UTF-8",
+      "localectl list-keymaps"
+    ]
+  },
+  {
+    "id": 139,
+    "command": "uptime",
+    "category": "Система",
+    "description": "Показывает время работы системы и среднюю нагрузку.",
+    "usage": "uptime",
+    "parameters": [],
+    "examples": [
+      "uptime",
+      "uptime -p",
+      "uptime -s"
+    ]
+  },
+  {
+    "id": 140,
+    "command": "whoami",
+    "category": "Система",
+    "description": "Показывает имя текущего пользователя.",
+    "usage": "whoami",
+    "parameters": [],
+    "examples": [
+      "whoami",
+      "whoami && id"
+    ]
+  },
+  {
+    "id": 141,
+    "command": "logname",
+    "category": "Система",
+    "description": "Показывает имя пользователя, вошедшего в систему.",
+    "usage": "logname",
+    "parameters": [],
+    "examples": [
+      "logname",
+      "logname 2>/dev/null || echo \"Not available\""
+    ]
+  },
+  {
+    "id": 142,
+    "command": "screen -list",
+    "category": "Терминал",
+    "description": "Показывает список сессий screen.",
+    "usage": "screen [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-list, -ls",
+        "description": "Показать список сессий"
+      },
+      {
+        "name": "-r",
+        "description": "Присоединиться к сессии"
+      }
+    ],
+    "examples": [
+      "screen -list",
+      "screen -r sessionname",
+      "screen -S newsession"
+    ]
+  },
+  {
+    "id": 143,
+    "command": "tmux list-sessions",
+    "category": "Терминал",
+    "description": "Показывает список сессий tmux.",
+    "usage": "tmux [OPTIONS]",
+    "parameters": [
+      {
+        "name": "list-sessions",
+        "description": "Показать список сессий"
+      },
+      {
+        "name": "attach",
+        "description": "Присоединиться к сессии"
+      }
+    ],
+    "examples": [
+      "tmux list-sessions",
+      "tmux attach -t 0",
+      "tmux new -s mysession"
+    ]
+  },
+  {
+    "id": 144,
+    "command": "byobu",
+    "category": "Терминал",
+    "description": "Удобная оболочка для screen или tmux.",
+    "usage": "byobu",
+    "parameters": [
+      {
+        "name": "-S",
+        "description": "Создать новую сессию"
+      },
+      {
+        "name": "-r",
+        "description": "Присоединиться к существующей сессии"
+      }
+    ],
+    "examples": [
+      "byobu",
+      "byobu -S newsession",
+      "byobu -r existingsession"
+    ]
+  },
+  {
+    "id": 145,
+    "command": "alias",
+    "category": "Терминал",
+    "description": "Показывает или создает псевдонимы команд.",
+    "usage": "alias [OPTIONS]",
+    "parameters": [],
+    "examples": [
+      "alias",
+      "alias ll='ls -la'",
+      "alias grep='grep --color=auto'"
+    ]
+  },
+  {
+    "id": 146,
+    "command": "unalias [ALIAS]",
+    "category": "Терминал",
+    "description": "Удаляет псевдоним команды.",
+    "usage": "unalias ALIAS",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Удалить все псевдонимы"
+      }
+    ],
+    "examples": [
+      "unalias ll",
+      "unalias -a"
+    ]
+  },
+  {
+    "id": 147,
+    "command": "history",
+    "category": "Терминал",
+    "description": "Показывает историю команд.",
+    "usage": "history [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-c",
+        "description": "Очистить историю"
+      },
+      {
+        "name": "-d",
+        "description": "Удалить указанную запись"
+      }
+    ],
+    "examples": [
+      "history",
+      "history 20",
+      "history | grep ssh"
+    ]
+  },
+  {
+    "id": 148,
+    "command": "!!",
+    "category": "Терминал",
+    "description": "Выполняет предыдущую команду.",
+    "usage": "!!",
+    "parameters": [],
+    "examples": [
+      "!!",
+      "sudo !!",
+      "!! | grep error"
+    ]
+  },
+  {
+    "id": 149,
+    "command": "!number",
+    "category": "Терминал",
+    "description": "Выполняет команду из истории по номеру.",
+    "usage": "!NUMBER",
+    "parameters": [],
+    "examples": [
+      "!100",
+      "!500",
+      "!-2"
+    ]
+  },
+  {
+    "id": 150,
+    "command": "!string",
+    "category": "Терминал",
+    "description": "Выполняет последнюю команду, начинающуюся с указанной строки.",
+    "usage": "!STRING",
+    "parameters": [],
+    "examples": [
+      "!ssh",
+      "!git",
+      "!make"
+    ]
+  },
+  {
+    "id": 151,
+    "command": "export [VARIABLE]=[VALUE]",
+    "category": "Терминал",
+    "description": "Устанавливает переменную окружения.",
+    "usage": "export VARIABLE=VALUE",
+    "parameters": [],
+    "examples": [
+      "export PATH=$PATH:/new/path",
+      "export EDITOR=nano",
+      "export LANG=en_US.UTF-8"
+    ]
+  },
+  {
+    "id": 152,
+    "command": "env",
+    "category": "Терминал",
+    "description": "Показывает переменные окружения.",
+    "usage": "env",
+    "parameters": [],
+    "examples": [
+      "env",
+      "env | grep PATH",
+      "env -i command"
+    ]
+  },
+  {
+    "id": 153,
+    "command": "set",
+    "category": "Терминал",
+    "description": "Показывает все переменные shell.",
+    "usage": "set",
+    "parameters": [
+      {
+        "name": "-x",
+        "description": "Включить режим отладки"
+      },
+      {
+        "name": "-e",
+        "description": "Выходить при ошибке"
+      }
+    ],
+    "examples": [
+      "set",
+      "set -x",
+      "set -e"
+    ]
+  },
+  {
+    "id": 154,
+    "command": "unset [VARIABLE]",
+    "category": "Терминал",
+    "description": "Удаляет переменную окружения.",
+    "usage": "unset VARIABLE",
+    "parameters": [],
+    "examples": [
+      "unset VARIABLE",
+      "unset -v var1 var2",
+      "unset -f function_name"
+    ]
+  },
+  {
+    "id": 155,
+    "command": "echo $[VARIABLE]",
+    "category": "Терминал",
+    "description": "Выводит значение переменной окружения.",
+    "usage": "echo $VARIABLE",
+    "parameters": [],
+    "examples": [
+      "echo $PATH",
+      "echo $HOME",
+      "echo ${VARIABLE:-default}"
+    ]
+  },
+  {
+    "id": 156,
+    "command": "printenv [VARIABLE]",
+    "category": "Терминал",
+    "description": "Выводит значение переменной окружения.",
+    "usage": "printenv [VARIABLE]",
+    "parameters": [],
+    "examples": [
+      "printenv",
+      "printenv PATH",
+      "printenv HOME"
+    ]
+  },
+  {
+    "id": 157,
+    "command": "source [FILE]",
+    "category": "Терминал",
+    "description": "Выполняет команды из файла в текущем shell.",
+    "usage": "source FILE",
+    "parameters": [],
+    "examples": [
+      "source ~/.bashrc",
+      "source /etc/profile",
+      "source script.sh"
+    ]
+  },
+  {
+    "id": 158,
+    "command": ".",
+    "category": "Терминал",
+    "description": "Альтернативный синтаксис для source.",
+    "usage": ". FILE",
+    "parameters": [],
+    "examples": [
+      ". ~/.bashrc",
+      ". /etc/profile.d/color_prompt.sh",
+      ". env.sh"
+    ]
+  },
+  {
+    "id": 159,
+    "command": "exec [COMMAND]",
+    "category": "Терминал",
+    "description": "Заменяет текущий shell указанной командой.",
+    "usage": "exec COMMAND",
+    "parameters": [],
+    "examples": [
+      "exec bash",
+      "exec zsh",
+      "exec ls -la"
+    ]
+  },
+  {
+    "id": 160,
+    "command": "exit [CODE]",
+    "category": "Терминал",
+    "description": "Выходит из shell с указанным кодом возврата.",
+    "usage": "exit [CODE]",
+    "parameters": [],
+    "examples": [
+      "exit",
+      "exit 0",
+      "exit 1"
+    ]
+  },
+  {
+    "id": 161,
+    "command": "logout",
+    "category": "Терминал",
+    "description": "Выходит из login shell.",
+    "usage": "logout",
+    "parameters": [],
+    "examples": [
+      "logout",
+      "logout 2>/dev/null || exit"
+    ]
+  },
+  {
+    "id": 162,
+    "command": "shutdown [TIME]",
+    "category": "Система",
+    "description": "Завершает работу системы.",
+    "usage": "sudo shutdown [OPTIONS] TIME",
+    "parameters": [
+      {
+        "name": "-h",
+        "description": "Остановить систему"
+      },
+      {
+        "name": "-r",
+        "description": "Перезагрузить систему"
+      }
+    ],
+    "examples": [
+      "sudo shutdown -h now",
+      "sudo shutdown -r +10",
+      "sudo shutdown -r 23:00"
+    ]
+  },
+  {
+    "id": 163,
+    "command": "reboot",
+    "category": "Система",
+    "description": "Перезагружает систему.",
+    "usage": "sudo reboot",
+    "parameters": [],
+    "examples": [
+      "sudo reboot",
+      "sudo reboot -f",
+      "sudo reboot --force"
+    ]
+  },
+  {
+    "id": 164,
+    "command": "poweroff",
+    "category": "Система",
+    "description": "Выключает систему.",
+    "usage": "sudo poweroff",
+    "parameters": [],
+    "examples": [
+      "sudo poweroff",
+      "sudo poweroff -f",
+      "sudo poweroff --force"
+    ]
+  },
+  {
+    "id": 165,
+    "command": "halt",
+    "category": "Система",
+    "description": "Останавливает систему.",
+    "usage": "sudo halt",
+    "parameters": [],
+    "examples": [
+      "sudo halt",
+      "sudo halt -p",
+      "sudo halt --force"
+    ]
+  },
+  {
+    "id": 166,
+    "command": "init 0",
+    "category": "Система",
+    "description": "Переходит в runlevel 0 (остановка).",
+    "usage": "sudo init LEVEL",
+    "parameters": [],
+    "examples": [
+      "sudo init 0",
+      "sudo init 6",
+      "sudo init 3"
+    ]
+  },
+  {
+    "id": 167,
+    "command": "telinit [LEVEL]",
+    "category": "Система",
+    "description": "Изменяет уровень запуска системы.",
+    "usage": "sudo telinit LEVEL",
+    "parameters": [],
+    "examples": [
+      "sudo telinit 0",
+      "sudo telinit 6",
+      "sudo telinit q"
+    ]
+  },
+  {
+    "id": 168,
+    "command": "runlevel",
+    "category": "Система",
+    "description": "Показывает текущий и предыдущий уровни запуска.",
+    "usage": "runlevel",
+    "parameters": [],
+    "examples": [
+      "runlevel",
+      "runlevel | awk '{print $2}'"
+    ]
+  },
+  {
+    "id": 169,
+    "command": "wall [MESSAGE]",
+    "category": "Система",
+    "description": "Отправляет сообщение всем пользователям.",
+    "usage": "sudo wall [OPTIONS] MESSAGE",
+    "parameters": [],
+    "examples": [
+      "echo \"Система будет перезагружена через 5 минут\" | sudo wall",
+      "sudo wall \"Сервер будет остановлен для обслуживания\"",
+      "cat message.txt | sudo wall"
+    ]
+  },
+  {
+    "id": 170,
+    "command": "write [USER]",
+    "category": "Система",
+    "description": "Отправляет сообщение конкретному пользователю.",
+    "usage": "write USER [TTY]",
+    "parameters": [],
+    "examples": [
+      "write username",
+      "write root pts/0",
+      "echo \"Проверьте логи\" | write admin"
+    ]
+  },
+  {
+    "id": 171,
+    "command": "mesg",
+    "category": "Система",
+    "description": "Включает или выключает получение сообщений.",
+    "usage": "mesg [OPTIONS]",
+    "parameters": [
+      {
+        "name": "y",
+        "description": "Включить получение сообщений"
+      },
+      {
+        "name": "n",
+        "description": "Выключить получение сообщений"
+      }
+    ],
+    "examples": [
+      "mesg",
+      "mesg y",
+      "mesg n"
+    ]
+  },
+  {
+    "id": 172,
+    "command": "talk [USER]",
+    "category": "Система",
+    "description": "Начинает интерактивный разговор с другим пользователем.",
+    "usage": "talk USER",
+    "parameters": [],
+    "examples": [
+      "talk username",
+      "talk username@host",
+      "talk root@localhost"
+    ]
+  },
+  {
+    "id": 173,
+    "command": "skill [PROCESS]",
+    "category": "Процессы",
+    "description": "Отправляет сигнал процессу.",
+    "usage": "skill [OPTIONS] PROCESS",
+    "parameters": [
+      {
+        "name": "-KILL",
+        "description": "Отправить сигнал KILL"
+      },
+      {
+        "name": "-STOP",
+        "description": "Остановить процесс"
+      }
+    ],
+    "examples": [
+      "skill -KILL processname",
+      "skill -STOP pid",
+      "skill -CONT suspendedprocess"
+    ]
+  },
+  {
+    "id": 174,
+    "command": "snice [PID]",
+    "category": "Процессы",
+    "description": "Изменяет приоритет процесса.",
+    "usage": "snice [OPTIONS] PID",
+    "parameters": [
+      {
+        "name": "-n",
+        "description": "Значение nice (от -20 до 19)"
+      }
+    ],
+    "examples": [
+      "snice -n 10 1234",
+      "snice -n -5 5678",
+      "snice +5 9012"
+    ]
+  },
+  {
+    "id": 175,
+    "command": "pgrep [PATTERN]",
+    "category": "Процессы",
+    "description": "Ищет процессы по имени и выводит их PID.",
+    "usage": "pgrep [OPTIONS] PATTERN",
+    "parameters": [
+      {
+        "name": "-l",
+        "description": "Показать имена процессов"
+      },
+      {
+        "name": "-u",
+        "description": "Искать процессы конкретного пользователя"
+      }
+    ],
+    "examples": [
+      "pgrep nginx",
+      "pgrep -l python",
+      "pgrep -u www-data"
+    ]
+  },
+  {
+    "id": 176,
+    "command": "pkill [PATTERN]",
+    "category": "Процессы",
+    "description": "Ищет процессы по имени и отправляет им сигнал.",
+    "usage": "pkill [OPTIONS] PATTERN",
+    "parameters": [
+      {
+        "name": "-SIGNAL",
+        "description": "Отправить указанный сигнал"
+      },
+      {
+        "name": "-f",
+        "description": "Искать по полной командной строке"
+      }
+    ],
+    "examples": [
+      "pkill nginx",
+      "pkill -9 hung_process",
+      "pkill -f \"python script.py\""
+    ]
+  },
+  {
+    "id": 177,
+    "command": "pidof [PROGRAM]",
+    "category": "Процессы",
+    "description": "Находит PID программы по имени.",
+    "usage": "pidof [OPTIONS] PROGRAM",
+    "parameters": [
+      {
+        "name": "-s",
+        "description": "Возвратить только один PID"
+      },
+      {
+        "name": "-x",
+        "description": "Включить скрипты"
+      }
+    ],
+    "examples": [
+      "pidof nginx",
+      "pidof -s bash",
+      "pidof -x script.sh"
+    ]
+  },
+  {
+    "id": 178,
+    "command": "timeout [TIME] [COMMAND]",
+    "category": "Процессы",
+    "description": "Запускает команду с ограничением по времени.",
+    "usage": "timeout [OPTIONS] TIME COMMAND",
+    "parameters": [
+      {
+        "name": "-k",
+        "description": "Отправить KILL сигнал после таймаута"
+      },
+      {
+        "name": "--preserve-status",
+        "description": "Сохранить статус выхода"
+      }
+    ],
+    "examples": [
+      "timeout 5s long_running_command",
+      "timeout -k 30s 1m slow_process",
+      "timeout --preserve-status 10 script.sh"
+    ]
+  },
+  {
+    "id": 179,
+    "command": "nohup [COMMAND]",
+    "category": "Процессы",
+    "description": "Запускает команду, игнорируя сигнал HUP.",
+    "usage": "nohup COMMAND",
+    "parameters": [],
+    "examples": [
+      "nohup ./server.sh &",
+      "nohup python script.py > output.log 2>&1 &",
+      "nohup make install"
+    ]
+  },
+  {
+    "id": 180,
+    "command": "disown [JOB]",
+    "category": "Процессы",
+    "description": "Удаляет задачу из таблицы задач shell.",
+    "usage": "disown [OPTIONS] JOB",
+    "parameters": [
+      {
+        "name": "-h",
+        "description": "Не отправлять HUP при выходе"
+      },
+      {
+        "name": "-a",
+        "description": "Удалить все задачи"
+      }
+    ],
+    "examples": [
+      "disown %1",
+      "disown -h %2",
+      "disown -a"
+    ]
+  },
+  {
+    "id": 181,
+    "command": "bg [JOB]",
+    "category": "Процессы",
+    "description": "Возобновляет выполнение приостановленной задачи в фоне.",
+    "usage": "bg [JOB]",
+    "parameters": [],
+    "examples": [
+      "bg",
+      "bg %1",
+      "bg %2"
+    ]
+  },
+  {
+    "id": 182,
+    "command": "fg [JOB]",
+    "category": "Процессы",
+    "description": "Переводит задачу на передний план.",
+    "usage": "fg [JOB]",
+    "parameters": [],
+    "examples": [
+      "fg",
+      "fg %1",
+      "fg %2"
+    ]
+  },
+  {
+    "id": 183,
+    "command": "jobs",
+    "category": "Процессы",
+    "description": "Показывает список задач shell.",
+    "usage": "jobs [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-l",
+        "description": "Показать PID задач"
+      },
+      {
+        "name": "-p",
+        "description": "Показать только PID"
+      }
+    ],
+    "examples": [
+      "jobs",
+      "jobs -l",
+      "jobs -p"
+    ]
+  },
+  {
+    "id": 184,
+    "command": "wait [PID]",
+    "category": "Процессы",
+    "description": "Ожидает завершения процесса.",
+    "usage": "wait [PID]",
+    "parameters": [],
+    "examples": [
+      "wait 1234",
+      "wait %1",
+      "wait"
+    ]
+  },
+  {
+    "id": 185,
+    "command": "trap \"[COMMAND]\" [SIGNAL]",
+    "category": "Процессы",
+    "description": "Устанавливает обработчик сигнала.",
+    "usage": "trap COMMAND SIGNAL",
+    "parameters": [],
+    "examples": [
+      "trap \"echo 'Interrupted'; exit\" INT",
+      "trap \"cleanup\" EXIT",
+      "trap - INT"
+    ]
+  },
+  {
+    "id": 186,
+    "command": "kill [PID]",
+    "category": "Процессы",
+    "description": "Отправляет сигнал процессу.",
+    "usage": "kill [OPTIONS] PID",
+    "parameters": [
+      {
+        "name": "-SIGNAL",
+        "description": "Указать сигнал"
+      },
+      {
+        "name": "-l",
+        "description": "Показать список сигналов"
+      }
+    ],
+    "examples": [
+      "kill 1234",
+      "kill -9 5678",
+      "kill -l"
+    ]
+  },
+  {
+    "id": 187,
+    "command": "killall [PROCESS]",
+    "category": "Процессы",
+    "description": "Завершает все процессы с указанным именем.",
+    "usage": "killall [OPTIONS] PROCESS",
+    "parameters": [
+      {
+        "name": "-SIGNAL",
+        "description": "Указать сигнал"
+      },
+      {
+        "name": "-u",
+        "description": "Завершить процессы конкретного пользователя"
+      }
+    ],
+    "examples": [
+      "killall nginx",
+      "killall -9 python",
+      "killall -u username process"
+    ]
+  },
+  {
+    "id": 188,
+    "command": "xargs [COMMAND]",
+    "category": "Терминал",
+    "description": "Строит и выполняет команды из стандартного ввода.",
+    "usage": "xargs [OPTIONS] COMMAND",
+    "parameters": [
+      {
+        "name": "-I",
+        "description": "Заменить строку на входные данные"
+      },
+      {
+        "name": "-n",
+        "description": "Максимальное количество аргументов"
+      }
+    ],
+    "examples": [
+      "find . -name \"*.log\" | xargs rm",
+      "echo \"file1 file2 file3\" | xargs -n 1 cp -v /backup/",
+      "cat files.txt | xargs -I {} mv {} /new/location/"
+    ]
+  },
+  {
+    "id": 189,
+    "command": "awk '{print $1}' [FILE]",
+    "category": "Терминал",
+    "description": "Обрабатывает текст построчно и выполняет действия.",
+    "usage": "awk [OPTIONS] 'PROGRAM' FILE",
+    "parameters": [
+      {
+        "name": "-F",
+        "description": "Указать разделитель полей"
+      },
+      {
+        "name": "-v",
+        "description": "Определить переменную"
+      }
+    ],
+    "examples": [
+      "awk '{print $1}' file.txt",
+      "awk -F: '{print $1}' /etc/passwd",
+      "awk '/error/ {print $0}' logfile"
+    ]
+  },
+  {
+    "id": 190,
+    "command": "sed 's/old/new/g' [FILE]",
+    "category": "Терминал",
+    "description": "Потоковый редактор для фильтрации и преобразования текста.",
+    "usage": "sed [OPTIONS] 'COMMAND' FILE",
+    "parameters": [
+      {
+        "name": "-i",
+        "description": "Изменять файл на месте"
+      },
+      {
+        "name": "-n",
+        "description": "Подавлять автоматический вывод"
+      }
+    ],
+    "examples": [
+      "sed 's/foo/bar/g' file.txt",
+      "sed -i 's/old/new/g' config.conf",
+      "sed -n '10,20p' file.txt"
+    ]
+  },
+  {
+    "id": 191,
+    "command": "sort [FILE]",
+    "category": "Терминал",
+    "description": "Сортирует строки текстового файла.",
+    "usage": "sort [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-n",
+        "description": "Числовая сортировка"
+      },
+      {
+        "name": "-r",
+        "description": "Обратная сортировка"
+      }
+    ],
+    "examples": [
+      "sort file.txt",
+      "sort -n numbers.txt",
+      "sort -r file.txt"
+    ]
+  },
+  {
+    "id": 192,
+    "command": "uniq [FILE]",
+    "category": "Терминал",
+    "description": "Удаляет повторяющиеся строки из отсортированного файла.",
+    "usage": "uniq [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-c",
+        "description": "Подсчитать количество повторений"
+      },
+      {
+        "name": "-d",
+        "description": "Показать только повторяющиеся строки"
+      }
+    ],
+    "examples": [
+      "uniq file.txt",
+      "sort file.txt | uniq -c",
+      "uniq -d duplicates.txt"
+    ]
+  },
+  {
+    "id": 193,
+    "command": "cut -d':' -f1 [FILE]",
+    "category": "Терминал",
+    "description": "Извлекает части строк из файла.",
+    "usage": "cut [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-d",
+        "description": "Разделитель полей"
+      },
+      {
+        "name": "-f",
+        "description": "Номера полей для извлечения"
+      }
+    ],
+    "examples": [
+      "cut -d: -f1 /etc/passwd",
+      "cut -f1,3 data.csv",
+      "cut -c1-10 file.txt"
+    ]
+  },
+  {
+    "id": 194,
+    "command": "paste [FILE1] [FILE2]",
+    "category": "Терминал",
+    "description": "Объединяет строки файлов.",
+    "usage": "paste [OPTIONS] FILE1 FILE2",
+    "parameters": [
+      {
+        "name": "-d",
+        "description": "Использовать указанный разделитель"
+      },
+      {
+        "name": "-s",
+        "description": "Объединить строки одного файла"
+      }
+    ],
+    "examples": [
+      "paste file1.txt file2.txt",
+      "paste -d, names.txt ages.txt",
+      "paste -s singlefile.txt"
+    ]
+  },
+  {
+    "id": 195,
+    "command": "join [FILE1] [FILE2]",
+    "category": "Терминал",
+    "description": "Объединяет строки двух файлов по общему полю.",
+    "usage": "join [OPTIONS] FILE1 FILE2",
+    "parameters": [
+      {
+        "name": "-1",
+        "description": "Поле для объединения из первого файла"
+      },
+      {
+        "name": "-2",
+        "description": "Поле для объединения из второго файла"
+      }
+    ],
+    "examples": [
+      "join file1.txt file2.txt",
+      "join -1 2 -2 1 data1.txt data2.txt",
+      "join -t : /etc/passwd /etc/group"
+    ]
+  },
+  {
+    "id": 196,
+    "command": "tr '[a-z]' '[A-Z]'",
+    "category": "Терминал",
+    "description": "Заменяет или удаляет символы.",
+    "usage": "tr [OPTIONS] SET1 SET2",
+    "parameters": [
+      {
+        "name": "-d",
+        "description": "Удалить символы"
+      },
+      {
+        "name": "-s",
+        "description": "Сжать повторяющиеся символы"
+      }
+    ],
+    "examples": [
+      "tr '[a-z]' '[A-Z]' < file.txt",
+      "tr -d '\\r' < dosfile.txt > unixfile.txt",
+      "tr -s ' ' < file.txt"
+    ]
+  },
+  {
+    "id": 197,
+    "command": "wc [FILE]",
+    "category": "Терминал",
+    "description": "Подсчитывает строки, слова и байты в файле.",
+    "usage": "wc [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-l",
+        "description": "Только строки"
+      },
+      {
+        "name": "-w",
+        "description": "Только слова"
+      }
+    ],
+    "examples": [
+      "wc file.txt",
+      "wc -l logfile.txt",
+      "find . -name \"*.txt\" | xargs wc -l"
+    ]
+  },
+  {
+    "id": 198,
+    "command": "tee [FILE]",
+    "category": "Терминал",
+    "description": "Читает из стандартного ввода и записывает в стандартный вывод и файлы.",
+    "usage": "tee [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Дописывать в конец файла"
+      },
+      {
+        "name": "-i",
+        "description": "Игнорировать прерывания"
+      }
+    ],
+    "examples": [
+      "ls -la | tee output.txt",
+      "command 2>&1 | tee logfile.txt",
+      "echo \"text\" | tee -a file.txt"
+    ]
+  },
+  {
+    "id": 199,
+    "command": "sponge [FILE]",
+    "category": "Терминал",
+    "description": "Поглощает весь ввод перед записью в файл (полезно для чтения и записи в один файл).",
+    "usage": "sponge [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-a",
+        "description": "Дописывать в конец файла"
+      }
+    ],
+    "examples": [
+      "sed 's/old/new/g' file.txt | sponge file.txt",
+      "sort file.txt | sponge file.txt",
+      "jq '.' messy.json | sponge pretty.json"
+    ]
+  },
+  {
+    "id": 200,
+    "command": "column -t [FILE]",
+    "category": "Терминал",
+    "description": "Форматирует текст в колонки.",
+    "usage": "column [OPTIONS] FILE",
+    "parameters": [
+      {
+        "name": "-t",
+        "description": "Создать таблицу"
+      },
+      {
+        "name": "-s",
+        "description": "Указать разделитель"
+      }
+    ],
+    "examples": [
+      "column -t data.txt",
+      "cat /etc/passwd | column -t -s:",
+      "ps aux | column -t"
+    ]
+  }
+]
